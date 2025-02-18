@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random OTP Generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      #otp {
+        font-size: 2rem;
+        margin: 10px;
+      }
+      button {
+        padding: 10px;
+        margin: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Random OTP Generator</h2>
+    <p id="otp">----</p>
+    <button id="generate">Generate OTP</button>
+
+    <script>
+      function generateOTP() {
+        let otp = Math.floor(1000 + Math.random() * 9000);
+        document.getElementById("otp").textContent = otp;
+      }
+
+      document
+        .getElementById("generate")
+        .addEventListener("click", generateOTP);
+      generateOTP();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Maker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      .color-box {
+        width: 200px;
+        height: 200px;
+        border: 2px solid #000;
+        margin: 20px;
+        background-color: white;
+      }
+      input,
+      button {
+        padding: 10px;
+        margin: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Color Maker</h2>
+    <div class="color-box" id="colorBox"></div>
+    <label
+      >R: <input type="range" id="r" min="0" max="255" value="255"
+    /></label>
+    <label
+      >G: <input type="range" id="g" min="0" max="255" value="255"
+    /></label>
+    <label
+      >B: <input type="range" id="b" min="0" max="255" value="255"
+    /></label>
+    <button id="applyColor">Apply Color</button>
+    <button id="randomColor">Random Color</button>
+
+    <script>
+      function updateColor() {
+        let r = document.getElementById("r").value;
+        let g = document.getElementById("g").value;
+        let b = document.getElementById("b").value;
+        document.getElementById(
+          "colorBox"
+        ).style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+      }
+
+      document
+        .getElementById("applyColor")
+        .addEventListener("click", updateColor);
+
+      document
+        .getElementById("randomColor")
+        .addEventListener("click", function () {
+          let r = Math.floor(Math.random() * 256);
+          let g = Math.floor(Math.random() * 256);
+          let b = Math.floor(Math.random() * 256);
+          document.getElementById("r").value = r;
+          document.getElementById("g").value = g;
+          document.getElementById("b").value = b;
+          updateColor();
+        });
+    </script>
+  </body>
+</html>

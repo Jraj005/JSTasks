@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      .form-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      input,
+      button {
+        display: block;
+        width: 90%;
+        padding: 10px;
+        margin: 10px 10;
+        font-size: 1rem;
+      }
+      .error {
+        color: red;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Form Validation</h2>
+      <input type="text" id="name" placeholder="Enter Name" />
+      <p id="nameError" class="error"></p>
+
+      <input type="email" id="email" placeholder="Enter Email" />
+      <p id="emailError" class="error"></p>
+
+      <input type="password" id="password" placeholder="Enter Password" />
+      <p id="passwordError" class="error"></p>
+
+      <button id="submit">Submit</button>
+      <p id="output"></p>
+    </div>
+
+    <script>
+      document.getElementById("submit").addEventListener("click", function () {
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value.trim();
+
+        let nameError = document.getElementById("nameError");
+        let emailError = document.getElementById("emailError");
+        let passwordError = document.getElementById("passwordError");
+        let output = document.getElementById("output");
+
+        nameError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        output.textContent = "";
+
+        if (name === "") {
+          nameError.textContent = "Name is required!";
+          return;
+        }
+        if (email === "" || !email.includes("@")) {
+          emailError.textContent = "Enter a valid email!";
+          return;
+        }
+        if (password.length < 6) {
+          passwordError.textContent = "Password must be at least 6 characters!";
+          return;
+        }
+
+        output.textContent = `Form submitted! Name: ${name}, Email: ${email}`;
+        output.style.color = "green";
+      });
+    </script>
+  </body>
+</html>

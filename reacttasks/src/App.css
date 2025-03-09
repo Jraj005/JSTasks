@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.home-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px 50px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light-theme .card {
+  background: #1e1e1e;
+  color: white;
+}
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-theme .card {
+  background: #f5f5f5;
+  color: #000;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 50px;
+  right: 150px;
+  width: 120px;
+  height: 40px;
+  padding: 8px 16px;
+  background-color: #e1af59;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
